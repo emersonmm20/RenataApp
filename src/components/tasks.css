@@ -5,3 +5,15 @@
     --blue:#A294F9;
 }
 
+.todo-list {
+    display: flex;
+    flex-direction: column;
+}
+#div-input{
+    display: flex;
+}
+
+.list-container{
+    height: 100px;
+    
+}

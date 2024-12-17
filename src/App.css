@@ -94,39 +94,24 @@ body{
   flex-wrap: nowrap;
 }
 
-
-
-
-
-
-/* ---------------------------Menu------------------- */
-.show-menu-button{
-  background-color: none;
-  border: none;
-  margin: 0 10px;
+/* ---------------------------view------------------- */
+.view {
+  display: flex;
+  border: 1px solid var(--blue);
+  border-radius: 16px;
+  flex: 1;
 }
-.show-menu-button img{
-  width: 25px;
-  height: 25px;
+.view div{
+  display: flex;
+  border: 1px solid var(--blue);
 }
-.show-menu-button img:hover{
-  transform: scale(1.1);
-  cursor: pointer;
-
-  transition: .2s;
+.stadistics{
+  flex: .4;
 }
-
-#menu-container{
-  display: none;
-  position: relative;
+.todo-list{
+  flex: 1;
 }
-
-#menu-container button img{
-  width: 24px;
-  height: 24px;
-}
-
-#menu-container button{
-  background-color: none;
+.todo-list .list{
   border: none;
 }
+

@@ -1,25 +1,25 @@
 import logo from './logo.svg';
-import {TODO,Statistics,Menu} from './components/tasks.js';
+import {Statistics,Menu} from './components/tasks.js';
+import {TODO} from './components/TODO.js'
 import './App.css';
 import { useState } from 'react';
 
 function App() {
-
   const [menuActive,setMenuActive]= useState(false)
 
   const showMenu=()=>{
-    if (menuActive){
-      document.getElementById("menu-container").style.display="flex"
 
+    const divMenu=document.getElementById("menu-container")
+    // const divMenuChild=document.getElementById("menu")
+    if (menuActive){
+      divMenu.style.display="flex"
     }
     else{
-      document.getElementById("menu-container").style.display="none"
+      divMenu.style.display="none"
     }
     setMenuActive(!menuActive)
 
   }
-
-  
 
   return (
     <div className="App">
@@ -37,17 +37,15 @@ function App() {
         </div>
       </div>
       {/* ___________________MENU_____________________ */}
-      <div id='menu-container'>
+      <div id='menu-container' onClick={showMenu}>
 
         <Menu/>
-        <button onClick={showMenu}><img src={require('./icons/close.png')} /></button>
       </div>
-      {/* ___________________MENU_____________________ */}
+      {/* ___________________view_____________________ */}
       <div className='view'>
       <Statistics/>
       <TODO />
       </div>
-      
       
     </div>
   );
