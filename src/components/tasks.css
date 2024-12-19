@@ -9,11 +9,144 @@
     display: flex;
     flex-direction: column;
 }
-#div-input{
-    display: flex;
-}
 
 .list-container{
-    height: 100px;
-    
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
+
+
+#div-input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(106, 106, 106, 0.258);
+    justify-content: center;
+    align-items: center;
+}
+#div-input div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 50%;
+    background-color: var(--blue);
+    border-radius: 40px;
+    border: 10px solid var(--second-white);
+}
+
+#div-input div input{
+    width: 75%;
+    background-color: var(--white);
+    border: none;
+    padding: 20px 10px;
+    border-radius: 16px;
+    
+    transition: .5s;
+}
+#div-input div input:focus{
+    outline: none;
+    background-color: var(--second-white);
+
+    transition: .5s;
+}
+
+#div-input div button{
+    width: 75%;
+    border: none;
+    margin-top: 5px;
+    padding: 10px 5px;
+    border-radius: 16px;
+    color: var(--white);
+}
+/* --------------Open new task button----------------------- */
+#open-new-task{
+    width: 100%;
+    border: none;
+    background-color: lightgreen;
+    padding: 10px 5px;
+    border-radius: 8px;
+    
+    transition: .5s;
+}
+#open-new-task:hover{
+    background-color: darkgreen;
+    color: #fff;
+    transition: .5s;
+    cursor: pointer;
+}
+
+
+
+#send-task{
+    background-color: green;
+
+    transition: .5s;
+}
+#send-task:hover{
+    background-color: lightgreen;
+    color: #000;
+
+    transition: .5s;
+    cursor: pointer;
+
+}
+#close-new-task{
+    background-color: darkred;
+
+    transition: .5s;
+}
+#close-new-task:hover{
+    background-color: lightcoral;
+    color: #000;
+
+    transition: .5s;
+    cursor: pointer;
+}
+ul{
+    list-style: none;
+}
+.list {
+    width: 100%;
+    flex: 1;
+    outline: 1px solid grey;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-radius: 16px;
+}
+.list ul{
+    width: 100%;
+    overflow-y: scroll;
+    max-height: 100px;
+}
+.list .list-name{
+    width: 100%;
+    text-align: center;
+    padding: 5px 10px;
+    background-color: rgba(144, 144, 144, 0.12);
+    border-radius: 8px;
+}
+/* --------------Button Reset----------------------- */
+#reset-all-task{
+    background-color: darkred;
+    color: #fff;
+    padding: 10px 0;
+    border-radius: 8px;
+    border: none;
+}
+#reset-all-task:hover{
+    background-color: lightcoral;
+    cursor: pointer;
+    color: #fff;
+    transition: .5s;
+}
+
+
+

@@ -27,12 +27,14 @@ function App() {
       <div className='header'>
         <div className='header-left'>
           <button onClick={showMenu} className='show-menu-button'><img src={require('./icons/menu.png')}/></button>
-          <h1>Renata</h1>
+          <h1 style={{userSelect:"none"}}>Renata</h1>
         </div>
         <div className='header-rigth'>
           <ul>
             <li className='header-option'><button>calculator</button></li>
             <li className='header-option'><button>note</button></li>
+            <li className='header-option'><button>rule of three</button></li>
+            
           </ul>
         </div>
       </div>
