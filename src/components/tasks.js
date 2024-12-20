@@ -21,10 +21,10 @@ export const Menu = ()=>{
             <div className="projects-contain">
                 <div><p>Projects:</p><hr/></div>
                 <div id="projects-list">
-                    <Project name="buscar cualquier cosa"/> {/*COMPONENTE EXTERNO "PROJECT"*/}
-                    <Project name="realizar las 3 listas 'ToDo list'"/>
-                    <Project name="Mejorar la pagina"/>
-                    <Project name="crear un icono o imagen para la app"/>
+                    <Project name="Cambiar estados de las tareas en las listas 'Todo"/> {/*COMPONENTE EXTERNO "PROJECT"*/}
+                    <Project name="realizar las subaplicaciones del menu"/>
+                    <Project name="generar sistema de estadisticas"/>
+                    <Project name="aprender e integrar nodejs (backend)"/>
                 </div>
             </div>
         </div>

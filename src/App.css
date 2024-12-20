@@ -92,6 +92,81 @@ body{
   display: flex;
   flex-wrap: nowrap;
 }
+/* ---------------------------Tool------------------- */
+
+/* ----------------------BOTONES MAS USADOS--------------------- */
+.set-button{
+  width: 100%;
+  border: none;
+  background-color: darkgreen;
+  padding: 10px 5px;
+  border-radius: 8px;
+  color: #fff;
+  
+  transition: .5s;
+}
+.set-button:hover{
+  background-color: lightgreen;
+  color: #000;
+  
+  transition: .5s;
+  cursor: pointer;
+}
+
+.close-button{
+  background-color: darkred;
+  width: 100%;
+  color: #fff;
+  padding: 10px 0;
+  border-radius: 8px;
+  border: none;
+  transition: .5s;
+}
+.close-button:hover{
+  background-color: lightcoral;
+  cursor: pointer;
+  color: #000;
+  transition: .5s;
+}
+
+
+/* ----------------------------Universales --------------------------- */
+.universal-input{
+  width: 75%;
+  background-color: var(--white);
+  border: none;
+  padding: 20px 10px;
+  border-radius: 16px;
+  
+  transition: .5s;
+}
+.universal-input:focus{
+  outline: none;
+  background-color: var(--second-white);
+
+  transition: .5s;
+}
+
+/* ------------------------------ */
+.universal-list-element{
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 50px;
+  padding: 10px 5px;
+  background-color: var(--grey);
+  border-radius: 8px;
+  margin-top: 5px;
+}
+
+
+
+
+
+/* ----------------------props MAS USADOS--------------------- */
+
 
 /* ---------------------------view------------------- */
 .view {
