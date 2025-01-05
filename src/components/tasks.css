@@ -14,6 +14,22 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    
+}
+
+.list {
+    border: none;
+    overflow-y: hidden;
+    width: 100%;
+    flex: 1;
+    outline: 1px solid grey;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+    transition: .5s;
+    max-height: 450px;
 }
 
 
@@ -81,26 +97,15 @@
 ul{
     list-style: none;
 }
-.list {
-    width: 100%;
-    flex: 1;
-    outline: 1px solid grey;
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: scroll;
 
-    border-radius: 16px;
-    transition: .5s;
-}
 .list:hover{
-    flex:2;
+    flex: 2;
     transition: 1s;
 }
 
 .list ul{
     width: 100%;
+    overflow-y: scroll;
 }
 .list .list-name{
     width: 100%;
@@ -111,7 +116,10 @@ ul{
 }
 /* --------------Button Reset----------------------- */
 
-
+#Completed-list button{
+    display: none;
+    
+}
 
 
 

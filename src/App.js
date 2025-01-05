@@ -9,6 +9,31 @@ import './components/tools/tool.css'
 
 
 function App() {
+
+  //AÑADIR LOS ATAJOS DE TECLADO:
+  // N
+  const [keysHtml,setKeysHtml]=useState(false)
+  if(keysHtml==false){
+    const html=document.getElementById("html")
+    html.addEventListener("keydown",(e)=>{
+
+      switch (e.key) {
+        case "n":
+          document.getElementById("div-input").style.display="flex"
+          break;
+        // case "m":
+        //   setMenuActive(!menuActive)
+        //   break;
+      
+        default:
+          break;
+      }
+    })
+    setKeysHtml(!keysHtml)
+  }
+
+
+  //USE STATES
   const [menuActive,setMenuActive]= useState(false)
 
   const [tool,setTool]=useState(<Calc/>)
@@ -17,10 +42,8 @@ function App() {
 
 
 
-  const selectTool=(tool)=>{
 
-    return (0)
-  }
+
 
   return (
     <div className="App">

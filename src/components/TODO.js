@@ -8,17 +8,16 @@ export const TODO = ()=>{
 
     const [display,setDisplay]=useState(false)
     const [taskList,setTaskList]=useState([])
-    const [idTask,setIdTask]=useState(0)
+    const [idTask,setIdTask]=useState(1)
     const changeDisplay=()=>setDisplay(!display)
+    
 
     const addNewTask=()=>{
         const inputNewTask=document.getElementById("input-task")
         setTaskList([...taskList, [inputNewTask.value, idTask,0]]) //<----[TaskName, idTask, statusTask]
-        console.log(taskList)
-
         setIdTask(idTask + 1)
         inputNewTask.value=""
-        setDisplay(!display)
+        // setDisplay(!display)
     }
     
     const resetAll=()=>{
@@ -28,13 +27,36 @@ export const TODO = ()=>{
         }
         
     }
-    
-    // const assignTask=(task,position)=>{  <-----------realizar despues la asignacion de tareas/listas
-    //     if(task[2]==position){
-    //         return ()
-    //     }
+    const deleteTask=(task)=>{
+        setTaskList()
+    }
+    const changeTaskStatus=(task)=>{
+        return 0
+    }
+    const asignListTask=(task,position)=>{
+        // Parentesis--------------------------------
+        //la funcion recibirá dos parametros, la tarea y el estado de la tarea. en caso de que la posision deseada sea la indicada (tarea->estado) se retorna. esta funcion simplemente
+        //asigna la tarea a sus listas correspondientes, cambiar el estado ya se hace en otra funcion.
+        const idTask=task[1]
+        const nameTask=task[0]
 
-    // }
+        if(task[2]==position){
+            
+            return(
+                <li id={`task-${idTask}`} className='universal-list-element' >
+                    <p>{nameTask}</p>
+                    <div>
+                    <button onClick={()=>changeTaskStatus(task)}>Do</button>
+                    <button onClick={()=>deleteTask(task)}>Del</button>
+                    </div>
+                </li>
+                )
+
+        }
+
+        
+    }
+    
 
     return (
         <div className="todo-list">
@@ -58,17 +80,7 @@ export const TODO = ()=>{
                 list={
                     <ul>
                         {taskList.map(task=>
-                        (
-                            <li id={`${task[2]}`} className='universal-list-element' >
-                                <p>{task[0]}</p>
-                                <div>
-                                <button>Del</button>
-                                <button>Do</button>
-                                </div>
-                            </li>
-                                
-                                
-                        ))}
+                        (asignListTask(task,0)))}
                     </ul>
                 }
                 />
@@ -76,13 +88,23 @@ export const TODO = ()=>{
                 <TaskList
                 name="In progress"
                 id="progress-list"
-                list={[]}
+                list={
+                    <ul>
+                        {taskList.map(task=>
+                        (asignListTask(task,1)))}
+                    </ul>
+                }
                 />
                 {/*COMPLETED---------------------- */}
                 <TaskList
                 name="Completed"
                 id="Completed-list"
-                list={[]}
+                list={
+                    <ul>
+                        {taskList.map(task=>
+                        (asignListTask(task,2)))}
+                    </ul>
+                }
                 />
                 <button id='reset-all-task' className='close-button' onClick={resetAll}>reset all</button>
             </div>

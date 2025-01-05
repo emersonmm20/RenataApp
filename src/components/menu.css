@@ -47,6 +47,7 @@ width: 100%;
 
 }
 #menu {
+overflow-y: scroll;
 width: 30%;
 max-width: 300px;
 background-color: var(--grey);

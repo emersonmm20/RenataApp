@@ -92,7 +92,7 @@ body{
   display: flex;
   flex-wrap: nowrap;
 }
-/* ---------------------------Tool------------------- */
+/* ---------------------------menu------------------- */
 
 /* ----------------------BOTONES MAS USADOS--------------------- */
 .set-button{
@@ -186,7 +186,5 @@ body{
 .todo-list{
   flex: 1;
 }
-.todo-list .list{
-  border: none;
-}
+
 
