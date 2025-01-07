@@ -1,4 +1,4 @@
-import {Statistics,Menu} from './components/tasks.js';
+import {Menu} from './components/tasks.js';
 import {TODO} from './components/TODO.js'
 import './App.css';
 import { useState } from 'react';
@@ -10,29 +10,6 @@ import './components/tools/tool.css'
 
 function App() {
 
-  //AÑADIR LOS ATAJOS DE TECLADO:
-  // N
-  const [keysHtml,setKeysHtml]=useState(false)
-  if(keysHtml==false){
-    const html=document.getElementById("html")
-    html.addEventListener("keydown",(e)=>{
-
-      switch (e.key) {
-        case "n":
-          document.getElementById("div-input").style.display="flex"
-          break;
-        // case "m":
-        //   setMenuActive(!menuActive)
-        //   break;
-      
-        default:
-          break;
-      }
-    })
-    setKeysHtml(!keysHtml)
-  }
-
-
   //USE STATES
   const [menuActive,setMenuActive]= useState(false)
 
@@ -40,18 +17,13 @@ function App() {
   const [showTool,setShowTool]=useState(false)
   const displayTool=()=>setShowTool(!showTool)
 
-
-
-
-
-
   return (
     <div className="App">
       {/* ___________________Header_____________________ */}
       <div className='header'>
         <div className='header-left'>
           <button onClick={()=>setMenuActive(!menuActive)} className='show-menu-button'><img src={require('./icons/menu.png')}/></button>
-          <h1 style={{userSelect:"none"}}>Renata</h1>
+          <h1>Renata</h1>
         </div>
         <div className='header-rigth'>
           <ul>
@@ -73,7 +45,6 @@ function App() {
       </div>
       {/* ___________________view_____________________ */}
       <div className='view'>
-      <Statistics/>
       <TODO />
       </div>
       

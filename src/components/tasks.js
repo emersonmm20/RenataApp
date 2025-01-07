@@ -2,18 +2,8 @@ import { Project,UserData } from "./menu"
 import './menu.css'
 
 
-export const Statistics = ({toBeDone,inProgress,completed})=>{
-    return (
-        <div className="stadistics">
-            {/* <div className="circle"></div>
-            <p>tasks to be done: <span id={ToBeDone}></span></p>
-            <p>Tasks in progress: <span id={inProgress}></span></p>
-            <p>Tasks completed: <span id={completed}></span></p> */}
-        </div>
-    )
-}
-export const Menu = ()=>{
 
+export const Menu = ()=>{
 
     return (
         <div id="menu" onClick={(e)=>{e.stopPropagation()}}>

@@ -1,115 +1,107 @@
 import {useState} from 'react'
+import { Statistics } from './Stadistics'
 import './tasks.css'
-import { TaskList } from './TaskList/TaskList'
+
 
 
 
 export const TODO = ()=>{
 
-    const [display,setDisplay]=useState(false)
-    const [taskList,setTaskList]=useState([])
-    const [idTask,setIdTask]=useState(1)
-    const changeDisplay=()=>setDisplay(!display)
-    
+    const [todo,setTodo]=useState([])
+    const [id,setId]=useState(0)
 
     const addNewTask=()=>{
-        const inputNewTask=document.getElementById("input-task")
-        setTaskList([...taskList, [inputNewTask.value, idTask,0]]) //<----[TaskName, idTask, statusTask]
-        setIdTask(idTask + 1)
-        inputNewTask.value=""
-        // setDisplay(!display)
+        const input= document.getElementById("input-task")
+        const newTask={
+            "taskName":input.value,
+            "status":0,
+            "id":id}
+        setTodo([...todo, newTask])
+        input.value=""
+        setId(id+1)
+
+        console.log(todo)
     }
-    
-    const resetAll=()=>{
-        if (window.confirm("Delete all task?")){
-            setTaskList([])
-            setIdTask(0)
-        }
+    const resetTask=()=>setTodo([])
+
+    const changeStatus=(task)=>{
+        console.log(todo.type)
+        const index=todo.indexOf(task)
+        const newList=[...todo.slice(0,index),...todo.slice(index+1),{
+            "taskName":task.taskName,
+            "status":task.status+1,
+            "id":task.id}]
+        console.log(index)
+        console.log(newList)
+        setTodo(newList)
+
+
         
+        
+
     }
     const deleteTask=(task)=>{
-        setTaskList()
+        console.log(todo.type)
+        const index=todo.indexOf(task)
+        const newList=[...todo.slice(0,index),...todo.slice(index+1)]
+        console.log(index)
+        console.log(newList)
+        setTodo(newList)
     }
-    const changeTaskStatus=(task)=>{
-        return 0
-    }
-    const asignListTask=(task,position)=>{
-        // Parentesis--------------------------------
-        //la funcion recibirá dos parametros, la tarea y el estado de la tarea. en caso de que la posision deseada sea la indicada (tarea->estado) se retorna. esta funcion simplemente
-        //asigna la tarea a sus listas correspondientes, cambiar el estado ya se hace en otra funcion.
-        const idTask=task[1]
-        const nameTask=task[0]
+    const asign =(task,position)=>{
 
-        if(task[2]==position){
-            
-            return(
-                <li id={`task-${idTask}`} className='universal-list-element' >
-                    <p>{nameTask}</p>
-                    <div>
-                    <button onClick={()=>changeTaskStatus(task)}>Do</button>
-                    <button onClick={()=>deleteTask(task)}>Del</button>
-                    </div>
-                </li>
-                )
-
+        if(task.status==position){
+            return (
+                <li id={"task-"+task.id} className='task'>
+                    <p>{task.taskName}</p>
+                    <button onClick={()=>changeStatus(task)}>Move</button>
+                    <button onClick={()=>deleteTask(task)}>del</button>
+                    </li>
+            )
         }
 
-        
     }
-    
+
 
     return (
-        <div className="todo-list">
+        <div className='todo-lists-container'>
+            <Statistics data={todo}/>
+            <div className='input-container'>
+                <input type='text' placeholder='New task' id='input-task' onKeyDown={(e)=>{if(e.key==='Enter'){addNewTask()}}}/>
+                <button onClick={()=>addNewTask()}>Add task</button>
+            </div>
+
             
-            {/* NEW TASK------------------------------- */}
-            <div className='input' id='div-input' style={ display ? {display: 'flex'}: {display: 'none'}}
-            onClick={changeDisplay}>
-                <div onClick={(e)=>{e.stopPropagation()}}>
-                    <input autoComplete='off' className="universal-input" type='text' id='input-task' placeholder='Create a New Task' onKeyDown={(e)=>{if (e.key=='Enter'){addNewTask()}}}/>
-                    <button className='set-button' onClick={addNewTask}>Create Task</button>
-                    <button className='close-button' onClick={changeDisplay}>close</button>
+            <div id='lists-container'>
+                <div classname="list" id='todoList'>
+                    <h2>To do</h2>
+                    <ul>
+                        {todo.map(task=>asign(task,0))}
+                    </ul>
                 </div>
+                <div classname="list" id='progressList'>
+                    <h2>progress</h2>
+                    <ul>
+                        {todo.map(task=>asign(task,1))}
+                    </ul>
+                </div>
+                <div classname="list" id='Completed-list'>
+                    <h2>Completed</h2>
+                    <ul>
+                        {todo.map(task=>asign(task,2))}
+                    </ul>
+                </div>
+
             </div>
-            {/*--------------------- list ---------------------- */}
-            <div className='list-container'>
-            <button id='open-new-task' className='set-button' onClick={changeDisplay}>New Task</button>
-                {/* TODO LIST---------------------- */}
-                <TaskList
-                name="toDo"
-                id="todo-list"
-                list={
-                    <ul>
-                        {taskList.map(task=>
-                        (asignListTask(task,0)))}
-                    </ul>
-                }
-                />
-                {/* IN PROGRESS---------------------- */}
-                <TaskList
-                name="In progress"
-                id="progress-list"
-                list={
-                    <ul>
-                        {taskList.map(task=>
-                        (asignListTask(task,1)))}
-                    </ul>
-                }
-                />
-                {/*COMPLETED---------------------- */}
-                <TaskList
-                name="Completed"
-                id="Completed-list"
-                list={
-                    <ul>
-                        {taskList.map(task=>
-                        (asignListTask(task,2)))}
-                    </ul>
-                }
-                />
-                <button id='reset-all-task' className='close-button' onClick={resetAll}>reset all</button>
-            </div>
+            <button onClick={resetTask}>RESET TASK</button>
             
-            
+
+
+
+
+
         </div>
-    );
+    )
+
+
 }
