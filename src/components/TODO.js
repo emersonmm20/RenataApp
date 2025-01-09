@@ -54,8 +54,12 @@ export const TODO = ()=>{
             return (
                 <li id={"task-"+task.id} className='task'>
                     <p>{task.taskName}</p>
-                    <button onClick={()=>changeStatus(task)}>Move</button>
-                    <button onClick={()=>deleteTask(task)}>del</button>
+                    <div className='task-button'>
+                        <button className='change-status-button'  onClick={()=>changeStatus(task)}>Move</button>
+                        <button className='delete-button' onClick={()=>deleteTask(task)}>X</button>
+
+                    </div>
+                    
                     </li>
             )
         }
@@ -67,25 +71,26 @@ export const TODO = ()=>{
         <div className='todo-lists-container'>
             <Statistics data={todo}/>
             <div className='input-container'>
-                <input type='text' placeholder='New task' id='input-task' onKeyDown={(e)=>{if(e.key==='Enter'){addNewTask()}}}/>
-                <button onClick={()=>addNewTask()}>Add task</button>
+                <input  autoComplete='off' type='text' placeholder='New task' id='input-task' onKeyDown={(e)=>{if(e.key==='Enter'){addNewTask()}}}/>
+                <button className='change-status-button' onClick={()=>addNewTask()}>Add task</button>
+                <button  id="reset-button" onClick={resetTask}>RESET TASK</button>
             </div>
 
             
             <div id='lists-container'>
-                <div classname="list" id='todoList'>
+                <div className="list" id='todoList'>
                     <h2>To do</h2>
                     <ul>
                         {todo.map(task=>asign(task,0))}
                     </ul>
                 </div>
-                <div classname="list" id='progressList'>
+                <div className="list" id='progressList'>
                     <h2>progress</h2>
                     <ul>
                         {todo.map(task=>asign(task,1))}
                     </ul>
                 </div>
-                <div classname="list" id='Completed-list'>
+                <div className="list" id='Completed-list'>
                     <h2>Completed</h2>
                     <ul>
                         {todo.map(task=>asign(task,2))}
@@ -93,7 +98,7 @@ export const TODO = ()=>{
                 </div>
 
             </div>
-            <button onClick={resetTask}>RESET TASK</button>
+            
             
 
 

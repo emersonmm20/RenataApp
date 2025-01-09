@@ -16,7 +16,7 @@ export const Note =()=>{
         <div className="tool" onClick={(e)=>e.stopPropagation()}>
             <h2>Notes</h2>
             <div>
-                <input type="text" className="universal-input" placeholder="Add Note" id="note-input" onKeyDown={(e)=>e.key=="Enter" ? addNote() : {}}/>
+                <input autoComplete="off" type="text" className="universal-input" placeholder="Add Note" id="note-input" onKeyDown={(e)=>e.key=="Enter" ? addNote() : {}}/>
                 <button onClick={addNote} className="set-button">Set Note</button>
                 <button onClick={()=>setNote([])} className="close-button">Reset</button>
 
