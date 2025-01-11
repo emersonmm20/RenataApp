@@ -23,7 +23,8 @@ export const Statistics = ({data})=>{
     }
     const percent =()=>{
         const percent=((((dataCount(0)+dataCount(1))/data.length  )* 100-100).toFixed(2))*-1
-        const div=document.getElementById("percent").style
+        if(document.getElementById("percent")){
+            const div=document.getElementById("percent").style
 
         if(dataCount(2)){
             if(dataCount(2)==data.length){
@@ -52,6 +53,8 @@ export const Statistics = ({data})=>{
             div.color="#000"
             return 0
         }
+        }
+        
     }
 
 
