@@ -15,16 +15,20 @@ justify-content: flex-end;
 background-color: #00000061;
 }
 .tool{
+overflow: hidden;
 display: flex;
 flex-direction: column;
+justify-content: center;
+align-items: center;
 background-color: var(--grey);
-width: 50%;
+max-width: 70%;
 height: 100%;
 padding: 25px;
 
 }
 .tool ul{
 height: 80%;
+width: 100%;
 overflow-y: scroll;
 }
 .tool .universal-input{
@@ -35,46 +39,4 @@ overflow-y: scroll;
     background-color:#e8b23d;
     text-align: justify;
     line-break: normal;
-}
-
-
-
-#calc{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: darkgray;
-    max-width: 500px;
-    margin: auto;
-    padding: 20px;
-    border-radius: 16px;
-
-}
-#calc ul{
-    display: flex;
-    flex-direction: column;
-    overflow-y: visible;
-}
-#calc input[type="text"]{
-    width: 100%;
-    border: none;
-    border-bottom: solid 2px #000;
-    background-color: #e3e3e3;
-    text-align: end;
-    padding: 10px 5px;
-}
-#calc input[type="text"]:focus{
-    background-color: #fff;
-    outline: none;
-}
-#calc ul li{
-    display: flex;
-    flex: 1;
-}
-#calc ul li button{
-    flex: 1;
-    padding: 10px 0;
-    border-radius: 8px;
-    margin: 5px 2px;
-    border: none;
 }

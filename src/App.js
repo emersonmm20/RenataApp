@@ -29,7 +29,7 @@ function App() {
           <ul>
             <li className='header-option' onClick={displayTool}><button onClick={()=>setTool(<Calc/>)}>calculator</button></li>
             <li className='header-option' onClick={displayTool}><button onClick={()=>setTool(<Note/>)}>note</button></li>
-            <li className='header-option' onClick={displayTool}><button onClick={()=>setTool(<RuleOfThree/>)}>rule of three</button></li>
+            {/* <li className='header-option' onClick={displayTool}><button onClick={()=>setTool(<RuleOfThree/>)}>rule of three</button></li> */}
             
           </ul>
         </div>
