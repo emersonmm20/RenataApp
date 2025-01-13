@@ -7,17 +7,10 @@ export const Calc=()=>{
     }
     return (
         <div className="tool calc-container" onClick={(e)=>e.stopPropagation()}>
-            <div id="calc">
-                <div id="calc-input-div"><input type="text" placeholder="0"/></div>
-                <ul id="calc-button">
-                    <li><button onClick={()=>pressButon(0)}>0</button><button onClick={()=>pressButon(0)}>0</button><button onClick={()=>pressButon(0)}>0</button><button onClick={()=>pressButon(0)}>0</button></li>
-                    <li><button onClick={()=>pressButon(0)}>0</button><button onClick={()=>pressButon(0)}>0</button><button onClick={()=>pressButon(0)}>0</button><button onClick={()=>pressButon(0)}>0</button></li>
-                    <li><button onClick={()=>pressButon(0)}>0</button><button onClick={()=>pressButon(0)}>0</button><button onClick={()=>pressButon(0)}>0</button><button onClick={()=>pressButon(0)}>0</button></li>
-                    <li><button onClick={()=>pressButon(0)}>0</button><button onClick={()=>pressButon(0)}>0</button><button onClick={()=>pressButon(0)}>0</button><button onClick={()=>pressButon(0)}>0</button></li>
-                    <li><button onClick={()=>pressButon(0)}>0</button><button onClick={()=>pressButon(0)}>0</button><button onClick={()=>pressButon(0)}>0</button><button onClick={()=>pressButon(0)}>0</button></li>
-                </ul>
-
+            <div id="display-calc">
+                <input type="text" placeholder="0"/>
             </div>
+            <div id="buttons-calc"></div>
         </div>
     )
 }

@@ -8,10 +8,33 @@ import './tasks.css'
 export const TODO = ()=>{
 
     const [todo,setTodo]=useState([])
+    const [viewLists,setViewLists]= useState(true)
     const [id,setId]=useState(0)
+
+    const exportTasks=()=>{
+        setViewLists(!viewLists)
+        
+        return 0
+    }
+
+    const importTask=(input)=>{
+        console.log(JSON.parse(input))
+        setTodo(JSON.parse(input))
+    }
 
     const addNewTask=()=>{
         const input= document.getElementById("input-task")
+        if(input.value==""){
+            window.alert("the new task cannot be empty")
+            return 0
+        }
+        if(input.value[0]=='['){
+            importTask(input.value)
+            input.value=""
+            return 0
+        }
+        
+
         const newTask={
             "taskName":input.value,
             "status":0,
@@ -19,8 +42,6 @@ export const TODO = ()=>{
         setTodo([...todo, newTask])
         input.value=""
         setId(id+1)
-
-        console.log(todo)
     }
     const resetTask=()=>setTodo([])
 
@@ -34,11 +55,6 @@ export const TODO = ()=>{
         console.log(index)
         console.log(newList)
         setTodo(newList)
-
-
-        
-        
-
     }
     const deleteTask=(task)=>{
         console.log(todo.type)
@@ -63,8 +79,8 @@ export const TODO = ()=>{
                     </li>
             )
         }
-
     }
+    //IMPORT FUNCTIONS----------------------
 
 
     return (
@@ -74,39 +90,32 @@ export const TODO = ()=>{
                 <input  autoComplete='off' type='text' placeholder='New task' id='input-task' onKeyDown={(e)=>{if(e.key==='Enter'){addNewTask()}}}/>
                 <button className='change-status-button' onClick={()=>addNewTask()}>Add task</button>
                 <button  id="reset-button" onClick={resetTask}>RESET TASK</button>
+                <button  className='change-status-button' onClick={exportTasks}>Export</button>
             </div>
-
-            
+            {/* LIST-------------------------------------------*/}
             <div id='lists-container'>
-                <div className="list" id='todoList'>
+                <div className="list" style={viewLists ? {display:"flex"} : {display:"none"}}  id='todoList'>
                     <h2>To do</h2>
                     <ul>
                         {todo.map(task=>asign(task,0))}
                     </ul>
                 </div>
-                <div className="list" id='progressList'>
+                <div className="list" id='progressList' style={viewLists ? {display:"flex"} : {display:"none"}}>
                     <h2>progress</h2>
                     <ul>
                         {todo.map(task=>asign(task,1))}
                     </ul>
                 </div>
-                <div className="list" id='Completed-list'>
+                <div className="list" id='Completed-list' style={viewLists ? {display:"flex"} : {display:"none"}}>
                     <h2>Completed</h2>
                     <ul>
                         {todo.map(task=>asign(task,2))}
                     </ul>
                 </div>
-
+                <div style={viewLists ? {display:"none"} : {display:"flex"}}>
+                    <p>{JSON.stringify(todo)} <br/><br/> Save this text and paste in 'New Task' for call it</p>
+                </div>
             </div>
-            
-            
-
-
-
-
-
         </div>
     )
-
-
 }
