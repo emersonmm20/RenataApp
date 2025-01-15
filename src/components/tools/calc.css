@@ -66,3 +66,27 @@
     transition: .5s;
     cursor: pointer;
 }
+.button-bottom-calc{
+    flex: 1;
+    padding: 5px 0;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 2px;
+    background: darkred;
+    color: #fff;
+    transition: .5s;
+
+}
+.button-bottom-calc:hover{
+    background-color: lightcoral;
+    color: #000;
+    cursor: pointer;
+    
+    transition: .5s;
+
+}
+.button-calc{
+    width: 100%;
+    display: flex;
+
+}

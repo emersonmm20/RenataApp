@@ -2,7 +2,7 @@ import {Menu} from './components/tasks.js';
 import {TODO} from './components/TODO.js'
 import './App.css';
 import { useState } from 'react';
-import {Calc,Note,RuleOfThree} from './components/tools'
+import {Calc,Note} from './components/tools'
 import './components/tools/tool.css'
 
 
