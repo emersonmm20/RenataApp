@@ -14,10 +14,8 @@ Renata App is a versatile and user-friendly application designed to help you sta
 ### 2. **Notepad**
    - A simple and convenient **notepad** to jot down quick notes, ideas, or reminders.
 
-### 3. **Rule of Three Calculator**
-   - Quickly solve proportion problems using the **Rule of Three**, ideal for math, budgeting, or any scenario requiring proportional calculations.
 
-### 4. **Basic Calculator**
+### 3. **Basic Calculator**
    - A handy **calculator** for performing basic arithmetic operations like addition, subtraction, multiplication, and division.
 
 ## How to Use
@@ -30,11 +28,8 @@ Renata App is a versatile and user-friendly application designed to help you sta
 2. **Notepad**:
    - Create, edit, and save notes for easy access.
 
-3. **Rule of Three Calculator**:
-   - Input the known values into the provided fields.
-   - Get the proportional result instantly.
 
-4. **Basic Calculator**:
+3. **Basic Calculator**:
    - Perform quick calculations without leaving the app.
 
 ## Installation
